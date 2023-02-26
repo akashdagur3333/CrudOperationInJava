@@ -1,0 +1,44 @@
+package com.example.exam.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.exam.entity.Department;
+import com.example.exam.repository.departmentRepository;
+import com.example.exam.service.SequenceGeneratorService;
+
+@RestController
+@CrossOrigin("*")
+public class departmentController {
+	
+	@Autowired
+	departmentRepository departmentRepository;
+	
+	@PostMapping("addDepartment")
+	public Department addDepartment(@Validated @RequestBody Department department) {
+		department.setId(SequenceGeneratorService.generateSequence(Department.SEQUENCE_NAME));
+		return departmentRepository.save(department);
+	}
+	
+	@GetMapping("showDepartment")
+	public List<Department> showDepartments(){
+		return departmentRepository.findAll();
+	}
+	
+	@GetMapping("deleteDepartment/{id}")
+	public String deleteDepartment(@PathVariable(value = "id") long id) {
+		 departmentRepository.deleteById(id);
+		 return "deleted"+id;
+		
+		
+	}
+
+}

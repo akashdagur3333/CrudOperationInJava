@@ -1,0 +1,46 @@
+<!-- <div class="container">
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Placeholder">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+</div> -->
+<div class="bootstrap-wrapper">
+    <form (ngSubmit)="formSubmit()">
+        <div class="row align-items-center">
+                <div class="card" style="border-radius: 10px;align-items: center;">
+                    
+                    <div class="card-body ">
+
+                <div class="center">
+                    <img src="../../assets/logo.png" width="30%" alt="">
+                </div>
+                        
+                <h2 class="center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: green;">Sign Up Page</h2>
+                    <label for="username" class="form-label">User Name</label>
+                    <input required type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" placeholder="User Name">
+               <br>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" required class="form-control" id="name" [(ngModel)]="user.name" name="name" placeholder="Enter Name">
+            <br>
+            <label for="father_name" class="form-label">Father Name</label>
+                    <input type="text" required class="form-control" id="father_name" [(ngModel)]="user.father_name" name="father_name" placeholder="Father Name">
+            
+               <br>
+                <label for="email_id" class="form-label">Email</label>
+                <input type="email" required class="form-control" id="email_id" [(ngModel)]="user.email_id" name="email_id" placeholder="Enter Email">
+        <br>
+                <label for="password" class="form-label">Password</label>
+                <input type="password" required class="form-control" id="password" [(ngModel)]="user.password" name="password" placeholder="Password">
+                <br>
+                <div class="center">
+                    <button type="submit" class="btn btn-outline-success" style="margin-right:5px;">Register</button>
+                    <button type="submit" class="btn btn-outline-danger">Clear</button>
+                </div>
+            </div>
+            </div>
+            </div>
+            
+    </form>
+</div>
+

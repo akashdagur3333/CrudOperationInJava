@@ -1,0 +1,66 @@
+package com.example.exam.controller;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.exam.entity.Product;
+import com.example.exam.repository.productRepository;
+import com.example.exam.service.SequenceGeneratorService;
+
+
+@RestController
+@CrossOrigin("*")
+@RequestMapping("product")
+public class productController {
+	
+	@Autowired
+	productRepository productRepository;
+	
+	
+	@PostMapping("addProduct")
+	public Product addProduct(@Validated @RequestBody Product product) {
+		product.setId(SequenceGeneratorService.generateSequence(Product.SEQUENCE_NAME));
+		return productRepository.save(product);
+		
+	}
+	
+	@GetMapping("showProduct")
+	public List<Product> showProduct() {
+		return productRepository.findAll();
+		}
+	
+	@PutMapping("updateProduct/{id}")
+	public Product updateProduct(@PathVariable long id, @RequestBody Product product) {
+		Product pro = productRepository.findById(id).get(); 
+		        pro.setProductName(product.getProductName());
+		        pro.setCategory(product.getCategory());
+		        pro.setComment(product.getComment());
+		        pro.setDate(product.getDate());
+		        pro.setFreshness(product.getFreshness());
+		        pro.setPrice(product.getPrice());
+		       return productRepository.save(pro);
+		    }  
+	
+	@DeleteMapping("deleteProduct/{id}")
+	public void deleteProduct(@PathVariable long id) {
+		productRepository.deleteById(id);
+	}
+//		
+//	@PutMapping("updateProduct/{id}")
+//	public Optional<Product>
+	}
+	
+

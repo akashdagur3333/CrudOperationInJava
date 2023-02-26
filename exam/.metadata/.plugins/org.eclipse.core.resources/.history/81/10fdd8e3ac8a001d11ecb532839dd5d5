@@ -1,0 +1,16 @@
+package com.example.demo.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class user {
+	
+	private long id;
+	private String username;
+	private String name;
+	private String father_name;
+	private String email;
+	private String password;
+	private Boolean enabled="true";
+
+}

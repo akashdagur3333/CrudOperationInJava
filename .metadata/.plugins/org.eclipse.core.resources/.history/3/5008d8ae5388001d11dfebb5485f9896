@@ -1,0 +1,1 @@
+spring.data.mongodb.url="mongodb+srv://root:root@akash.dsbux0q.mongodb.net/?retryWrites=true&w=majority"

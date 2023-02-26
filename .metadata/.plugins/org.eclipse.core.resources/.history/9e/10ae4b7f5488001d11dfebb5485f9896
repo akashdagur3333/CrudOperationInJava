@@ -1,0 +1,3 @@
+spring.data.mongodb.uri=mongodb+srv://root:root@akash.dsbux0q.mongodb.net/?retryWrites=true&w=majority
+spring.data.mongodb.database=examPortal
+server.port=8080

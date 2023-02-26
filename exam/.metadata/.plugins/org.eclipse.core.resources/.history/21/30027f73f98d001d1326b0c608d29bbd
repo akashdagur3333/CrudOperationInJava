@@ -1,0 +1,10 @@
+package com.example.exam.entity;
+
+
+public enum UserRole {
+	ROLE_USER,
+	  ROLE_MODERATOR,
+	  ROLE_ADMIN
+
+	
+}

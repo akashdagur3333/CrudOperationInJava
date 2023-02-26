@@ -1,0 +1,12 @@
+package com.example.exam.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.example.exam.entity.Role;
+import com.example.exam.entity.UserRole;
+
+public interface RoleRepository extends MongoRepository<Role, Long> {
+
+	void save(UserRole ur);
+
+}

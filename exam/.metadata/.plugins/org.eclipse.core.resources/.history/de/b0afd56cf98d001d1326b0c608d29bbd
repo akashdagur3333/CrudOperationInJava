@@ -1,0 +1,54 @@
+package com.example.exam.entity;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "userroles")
+public class UserRole {
+	
+	@Transient
+	public static final String SEQUENCE_NAME="User_roles";
+	
+	@Id
+	private long userRole_id;
+
+	//user
+	private User user;
+	
+	//role
+	private Role role;
+
+	public UserRole(long userRole_id) {
+		super();
+		this.userRole_id = userRole_id;
+	}
+
+	public long getUserRole_id() {
+		return userRole_id;
+	}
+
+	public void setUserRole_id(long userRole_id) {
+		this.userRole_id = userRole_id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	
+	
+	
+}

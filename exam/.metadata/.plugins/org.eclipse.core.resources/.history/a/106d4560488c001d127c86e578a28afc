@@ -1,0 +1,25 @@
+package com.example.exam.entity;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "products")
+public class Product {
+	@Transient
+	public static final String SEQUENCE_NAME="products_sequence";
+	
+	@Id
+	private Long id;
+	private String productName;
+	private String catrgory;
+	private String freshness;
+	private int price;
+	private String comment;
+	private String date;
+	
+	
+	
+	
+
+}

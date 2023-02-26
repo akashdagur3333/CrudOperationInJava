@@ -1,0 +1,8 @@
+.nav-link{
+    font-size: 25px;
+    padding: 20px;
+    border-bottom: 1px solid white;
+}
+.nav-link:hover{
+    background-color: green;
+}

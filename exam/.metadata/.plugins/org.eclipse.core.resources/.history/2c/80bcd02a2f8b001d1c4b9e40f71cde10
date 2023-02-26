@@ -1,0 +1,12 @@
+package com.example.exam.repository;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "departments")
+public interface departmentRepository {
+	@Id
+	private int id;
+	private String department_name;
+
+}
